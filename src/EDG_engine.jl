@@ -153,14 +153,14 @@ function run_simulation(
     )
     dispatch_results = hcat(dispatch_results, DataFrame(round.(value.(model[:vGEN]).data ./ 1000, digits=3), [Symbol(inputs["resources"].Resource[g]) for g in G]))
 
-    firm_capacity = sum(resource_results[resource_results.Resource .== firm, :Ending_Capacity_GW] for firm in ["nuclear", "natural_gas", "clean_firm"])[1]
+    firm_capacity = sum(resource_results[resource_results.Resource .== firm, :Ending_Capacity_GW] for firm in ["nuclear", "natural_gas", "clean_firm", "coal"])[1]
     firm_capacity = isempty(firm_capacity) ? 0.0 : firm_capacity
-    vre_capacity = sum(resource_results.Ending_Capacity_GW[resource_results.Resource .== vre] .* variability[:, Symbol(vre)] for vre in ["solar_pv", "distributed_solar", "onshore_wind", "offshore_wind"])
+    vre_capacity = sum(resource_results.Ending_Capacity_GW[resource_results.Resource .== vre] .* variability[:, Symbol(vre)] for vre in ["solar_pv", "distributed_solar", "onshore_wind", "offshore_wind", "hydro"])
     reserve_margin = minimum(firm_capacity .+ vre_capacity + dispatch_results.battery - dispatch_results.battery_charge - dispatch_results.demand_gw)
     nse_results.Reserve_Margin .= round(reserve_margin, digits=1)
 
     # Scoring for round (reliability and clean energy shares)
-    clean_share = round(100 - (sum(dispatch_results.natural_gas) / (sum(dispatch_results.demand_gw) - sum(dispatch_results.battery_charge))) * 100, digits=1)
+    clean_share = round(100 - ((sum(dispatch_results.natural_gas)+sum(dispatch_results.coal)) / (sum(dispatch_results.demand_gw) - sum(dispatch_results.battery_charge))) * 100, digits=1)
     reliability = nse_results.Reliability[1]
     (reliability_score, clean_score) = calc_scores(stage_num, reliability, clean_share, scoring_params)
     scores = DataFrame(
@@ -517,9 +517,11 @@ function update_step(
         # In EDG, the only resources that can be "existing" are natural gas and nuclear
         is_natural_gas = resources[g] == "natural_gas"
         is_nuclear = resources[g] == "nuclear"
+        is_coal = resources[g] == "coal"
+        is_hydro = resources[g] == "hydro"
         # Check if a nuclear resource is new or existing
         is_existing_nuclear = is_nuclear && (is_new_nuclear == false)
-        is_existing = is_natural_gas || is_existing_nuclear
+        is_existing = is_natural_gas || is_existing_nuclear || is_coal || is_hydro
         # Check if a resource is new and has build tokens
         if !(is_existing || build_tokens == 0)
             experience_results[1, resource] = round(experience, digits=3)
@@ -759,7 +761,7 @@ function compute_results(inputs::Dict,
     uncertainty_results = hcat(uncertainty_results, DataFrame(reshape(uncertainty["Forced_Outages"], 1, length(G)), uncertainty["Resources"]))
 
     # Scoring for round (reliability and clean energy shares)
-    clean_share = 100 - resource_results.Percent_GWh[resource_results.Resource.=="natural_gas"][1]
+    clean_share = 100 - (resource_results.Percent_GWh[resource_results.Resource.=="natural_gas"][1] + resource_results.Percent_GWh[resource_results.Resource.=="coal"][1])
     reliability = nse_results.Reliability[1]
     (reliability_score, clean_score) = calc_scores(stage_num, reliability, clean_share, scoring_params)
     scores = DataFrame(

@@ -100,6 +100,26 @@ resource_blocks:
     new_resource: false
     social_backlash: false
 
+  block_9:
+    name: "COAL"
+    start_capacity: 0
+    build_cost: 0
+    backlash_risk: "high"
+    EDG_data_name: "coal"
+    EDG_data_info: "Emitting generation source"
+    new_resource: false
+    social_backlash: false
+    
+  block_10:
+    name: "HYDRO"
+    start_capacity: 0
+    build_cost: 0
+    backlash_risk: "low"
+    EDG_data_name: "hydro"
+    EDG_data_info: "Very hard to build more hydro."
+    new_resource: false
+    social_backlash: false
+
 # Uncertainty parameters
 uncertainty_parameters: 
   Demand_Variance: 0.05

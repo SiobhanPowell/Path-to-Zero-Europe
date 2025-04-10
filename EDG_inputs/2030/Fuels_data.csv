@@ -1,4 +1,5 @@
 Index,Fuel,Cost,Emissions
 1,NG,5,0.05306
 2,Uranium,1,0
-3,None,0,0
+3,Coal,3,0.096
+4,None,0,0

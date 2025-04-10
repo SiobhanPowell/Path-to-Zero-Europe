@@ -22,7 +22,9 @@ using PrecompileTools: @compile_workload
             "onshore_wind",
             "offshore_wind",
             "battery",
-            "clean_firm"]
+            "clean_firm", 
+            "coal", 
+            "hydro"]
 
         start_capacity = DataFrame(
             resource_1=10,
@@ -32,7 +34,9 @@ using PrecompileTools: @compile_workload
             resource_5=10,
             resource_6=10,
             resource_7=10,
-            resource_8=10
+            resource_8=10,
+            resource_9=10,
+            resource_10=10
         )
         rename!(start_capacity, backend_data_name)
 
@@ -44,7 +48,9 @@ using PrecompileTools: @compile_workload
             resource_5=1,
             resource_6=1,
             resource_7=1,
-            resource_8=1
+            resource_8=1,
+            resource_9=1,
+            resource_10=1
         )
         rename!(build_tokens, backend_data_name)
 
@@ -56,7 +62,9 @@ using PrecompileTools: @compile_workload
             resource_5=10,
             resource_6=10,
             resource_7=10,
-            resource_8=10
+            resource_8=10,
+            resource_9=10,
+            resource_10=10
         )
         rename!(build_cost, backend_data_name)  
 
@@ -100,7 +108,9 @@ using PrecompileTools: @compile_workload
             resource_5="low",
             resource_6="low",
             resource_7="low",
-            resource_8="low"
+            resource_8="low",
+            resource_9="low",
+            resource_10="low"
         )
         rename!(_backlash_risk, backend_data_name)
 

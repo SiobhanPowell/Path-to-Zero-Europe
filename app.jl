@@ -24,7 +24,9 @@ const plot_colors = Dict(
     "Offshore Wind" => "#1f77b4",
     "Battery Discharge" => "#e377c2",
     "Battery Charge" => "#9467bd",
-    "Demand not served" => "#000000"
+    "Demand not served" => "#000000",
+    "Coal" => "#bdbdbd",
+    "Hydro" => "#c6dbef"
 )
 
 @app begin
@@ -125,6 +127,8 @@ const plot_colors = Dict(
     @out b_color_resource_6 = ""
     @out b_color_resource_7 = ""
     @out b_color_resource_8 = ""
+    @out b_color_resource_9 = ""
+    @out b_color_resource_10 = ""
 
     # Resource names
     @out name_resource_1 = "UNKNOWN"
@@ -135,6 +139,8 @@ const plot_colors = Dict(
     @out name_resource_6 = "UNKNOWN"
     @out name_resource_7 = "UNKNOWN"
     @out name_resource_8 = "UNKNOWN"
+    @out name_resource_9 = "UNKNOWN"
+    @out name_resource_10 = "UNKNOWN"
 
     # Build button names
     @out bb_name_resource_1 = "Added capacity"
@@ -145,6 +151,8 @@ const plot_colors = Dict(
     @out bb_name_resource_6 = "Added capacity"
     @out bb_name_resource_7 = "Added capacity"
     @out bb_name_resource_8 = "Added capacity"
+    @out bb_name_resource_9 = "Added capacity"
+    @out bb_name_resource_10 = "Added capacity"
 
     # buttons to build capacity 
     @in resource_1_build_p = false
@@ -155,6 +163,8 @@ const plot_colors = Dict(
     @in resource_6_build_p = false
     @in resource_7_build_p = false
     @in resource_8_build_p = false
+    @in resource_9_build_p = false
+    @in resource_10_build_p = false
 
     @in resource_1_build_m = false
     @in resource_2_build_m = false
@@ -164,6 +174,8 @@ const plot_colors = Dict(
     @in resource_6_build_m = false
     @in resource_7_build_m = false
     @in resource_8_build_m = false
+    @in resource_9_build_m = false
+    @in resource_10_build_m = false
 
     # Build Capacity
     @in cap_resource_1_stage_1 = 0
@@ -174,6 +186,8 @@ const plot_colors = Dict(
     @in cap_resource_6_stage_1 = 0
     @in cap_resource_7_stage_1 = 0
     @in cap_resource_8_stage_1 = 0
+    @in cap_resource_9_stage_1 = 0
+    @in cap_resource_10_stage_1 = 0
 
     @in cap_resource_1_stage_2 = 0
     @in cap_resource_2_stage_2 = 0
@@ -183,6 +197,8 @@ const plot_colors = Dict(
     @in cap_resource_6_stage_2 = 0
     @in cap_resource_7_stage_2 = 0
     @in cap_resource_8_stage_2 = 0
+    @in cap_resource_9_stage_2 = 0
+    @in cap_resource_10_stage_2 = 0
 
     @in cap_resource_1_stage_3 = 0
     @in cap_resource_2_stage_3 = 0
@@ -192,6 +208,8 @@ const plot_colors = Dict(
     @in cap_resource_6_stage_3 = 0
     @in cap_resource_7_stage_3 = 0
     @in cap_resource_8_stage_3 = 0
+    @in cap_resource_9_stage_3 = 0
+    @in cap_resource_10_stage_3 = 0
 
     @in cap_resource_1_stage_4 = 0
     @in cap_resource_2_stage_4 = 0
@@ -201,6 +219,8 @@ const plot_colors = Dict(
     @in cap_resource_6_stage_4 = 0
     @in cap_resource_7_stage_4 = 0
     @in cap_resource_8_stage_4 = 0
+    @in cap_resource_9_stage_4 = 0
+    @in cap_resource_10_stage_4 = 0
 
     @in cap_resource_1_stage_5 = 0
     @in cap_resource_2_stage_5 = 0
@@ -210,6 +230,8 @@ const plot_colors = Dict(
     @in cap_resource_6_stage_5 = 0
     @in cap_resource_7_stage_5 = 0
     @in cap_resource_8_stage_5 = 0
+    @in cap_resource_9_stage_5 = 0
+    @in cap_resource_10_stage_5 = 0
 
     # Cumulative Capacity
     @out cum_cap_resource_1 = 0
@@ -220,6 +242,8 @@ const plot_colors = Dict(
     @out cum_cap_resource_6 = 0
     @out cum_cap_resource_7 = 0
     @out cum_cap_resource_8 = 0
+    @out cum_cap_resource_9 = 0
+    @out cum_cap_resource_10 = 0
 
     # Build Tokens
     @out bt_resource_1 = 0
@@ -230,6 +254,8 @@ const plot_colors = Dict(
     @out bt_resource_6 = 0
     @out bt_resource_7 = 0
     @out bt_resource_8 = 0
+    @out bt_resource_9 = 0
+    @out bt_resource_10 = 0
 
     # start capacity
     @in sc_resource_1 = 0
@@ -240,6 +266,8 @@ const plot_colors = Dict(
     @in sc_resource_6 = 0
     @in sc_resource_7 = 0
     @in sc_resource_8 = 0
+    @in sc_resource_9 = 0
+    @in sc_resource_10 = 0
 
     # build cost
     @in bc_resource_1 = 0
@@ -250,6 +278,8 @@ const plot_colors = Dict(
     @in bc_resource_6 = 0
     @in bc_resource_7 = 0
     @in bc_resource_8 = 0
+    @in bc_resource_9 = 0
+    @in bc_resource_10 = 0
 
     # is new resource flag 
     @out is_new_resource_1 = false
@@ -260,6 +290,8 @@ const plot_colors = Dict(
     @out is_new_resource_6 = false
     @out is_new_resource_7 = false
     @out is_new_resource_8 = false
+    @out is_new_resource_9 = false
+    @out is_new_resource_10 = false
 
     # is clean firm flag
     @out is_clean_firm_resource_1 = false
@@ -270,6 +302,8 @@ const plot_colors = Dict(
     @out is_clean_firm_resource_6 = false
     @out is_clean_firm_resource_7 = false
     @out is_clean_firm_resource_8 = false
+    @out is_clean_firm_resource_9 = false
+    @out is_clean_firm_resource_10 = false
 
     # social backlash parameters
     @in sbp_resource_1 = "none"
@@ -280,6 +314,8 @@ const plot_colors = Dict(
     @in sbp_resource_6 = "none"
     @in sbp_resource_7 = "none"
     @in sbp_resource_8 = "none"
+    @in sbp_resource_9 = "none"
+    @in sbp_resource_10 = "none"
 
     # new nuclear resource
     @out is_WY_setup = false
@@ -335,6 +371,8 @@ const plot_colors = Dict(
     @out disaster_resource_6 = false
     @out disaster_resource_7 = false
     @out disaster_resource_8 = false
+    @out disaster_resource_9 = false
+    @out disaster_resource_10 = false
 
     # social backlash variables
     @out social_backlash_resource_1 = false
@@ -345,6 +383,8 @@ const plot_colors = Dict(
     @out social_backlash_resource_6 = false
     @out social_backlash_resource_7 = false
     @out social_backlash_resource_8 = false
+    @out social_backlash_resource_9 = false
+    @out social_backlash_resource_10 = false
     @out bt_resource_1_disabled = ""
     @out bt_resource_2_disabled = ""
     @out bt_resource_3_disabled = ""
@@ -353,6 +393,8 @@ const plot_colors = Dict(
     @out bt_resource_6_disabled = ""
     @out bt_resource_7_disabled = ""
     @out bt_resource_8_disabled = ""
+    @out bt_resource_9_disabled = ""
+    @out bt_resource_10_disabled = ""
 
     ### BACKEND VARIABLES
     @in current_stage = 1 # index of the current stage
@@ -366,6 +408,8 @@ const plot_colors = Dict(
     @in backend_data_name_6 = "resource_6"
     @in backend_data_name_7 = "resource_7"
     @in backend_data_name_8 = "resource_8"
+    @in backend_data_name_9 = "resource_9"
+    @in backend_data_name_10 = "resource_10"
 
     # backend data info
     @in backend_data_info_1 = "info_1"
@@ -376,6 +420,8 @@ const plot_colors = Dict(
     @in backend_data_info_6 = "info_6"
     @in backend_data_info_7 = "info_7"
     @in backend_data_info_8 = "info_8"
+    @in backend_data_info_9 = "info_9"
+    @in backend_data_info_10 = "info_10"
 
     # shaping tokens data structure
     @in shaping_tokens = Dict(
@@ -646,6 +692,36 @@ const plot_colors = Dict(
         b_color_resource_8 = is_new_resource_8 ? "border: 2px solid rgb(16, 16, 129);" : "border: 2px solid rgb(255, 198, 151);"
         b_color_resource_8 *= backend_data_name_8 == "clean_firm" ? color_select : ""
         is_clean_firm_resource_8 = backend_data_name_8 == "clean_firm" ? true : false
+        
+        block_9 = resource_blocks["block_9"]
+        name_resource_9 = block_9["name"]
+        sc_resource_9 = block_9["start_capacity"]
+        bc_resource_9 = block_9["build_cost"]
+        sbp_resource_9 = block_9["backlash_risk"]
+        backend_data_name_9 = block_9["EDG_data_name"]
+        backend_data_info_9 = block_9["EDG_data_info"]
+        is_new_resource_9 = block_9["new_resource"]
+        name_resource_9 = is_new_resource_9 ? name_resource_9 : name_resource_9 * " (EXISTING)"
+        cum_cap_resource_9 = sc_resource_9
+        bb_name_resource_9 = is_new_resource_9 ? "Added capacity" : "Retained capacity"
+        b_color_resource_9 = is_new_resource_9 ? "border: 2px solid rgb(16, 16, 129);" : "border: 2px solid rgb(255, 198, 151);"
+        b_color_resource_9 *= backend_data_name_9 == "clean_firm" ? color_select : ""
+        is_clean_firm_resource_9 = backend_data_name_9 == "clean_firm" ? true : false
+        
+        block_10 = resource_blocks["block_10"]
+        name_resource_10 = block_10["name"]
+        sc_resource_10 = block_10["start_capacity"]
+        bc_resource_10 = block_10["build_cost"]
+        sbp_resource_10 = block_10["backlash_risk"]
+        backend_data_name_10 = block_10["EDG_data_name"]
+        backend_data_info_10 = block_10["EDG_data_info"]
+        is_new_resource_10 = block_10["new_resource"]
+        name_resource_10 = is_new_resource_10 ? name_resource_10 : name_resource_10 * " (EXISTING)"
+        cum_cap_resource_10 = sc_resource_10
+        bb_name_resource_10 = is_new_resource_10 ? "Added capacity" : "Retained capacity"
+        b_color_resource_10 = is_new_resource_10 ? "border: 2px solid rgb(16, 16, 129);" : "border: 2px solid rgb(255, 198, 151);"
+        b_color_resource_10 *= backend_data_name_10 == "clean_firm" ? color_select : ""
+        is_clean_firm_resource_10 = backend_data_name_10 == "clean_firm" ? true : false
 
         # Uncertainty parameters
         uncertainty_parameters = _game_setup["uncertainty_parameters"]
@@ -673,7 +749,7 @@ const plot_colors = Dict(
         sp_reliability = scoring_parameters["Reliability"]
         
         # disaster 
-        disaster_resource_1 = disaster_resource_2 = disaster_resource_3 = disaster_resource_4 = disaster_resource_5 = disaster_resource_6 = disaster_resource_7 = disaster_resource_8 = false
+        disaster_resource_1 = disaster_resource_2 = disaster_resource_3 = disaster_resource_4 = disaster_resource_5 = disaster_resource_6 = disaster_resource_7 = disaster_resource_8 = disaster_resource_9 = disaster_resource_10 = false
         demand_shock_percent = 0.0
         outage_weeks = "None"
         disaster_occurred = "display: none"
@@ -699,7 +775,7 @@ const plot_colors = Dict(
             NSE_Percent_of_Demand = Max_NSE_GW = Total_NSE_GWh = Reserve_Margin = 0.0
 
             # social backlash
-            social_backlash_resource_1 = social_backlash_resource_2 = social_backlash_resource_3 = social_backlash_resource_4 = social_backlash_resource_5 = social_backlash_resource_6 = social_backlash_resource_7 = social_backlash_resource_8 = false
+            social_backlash_resource_1 = social_backlash_resource_2 = social_backlash_resource_3 = social_backlash_resource_4 = social_backlash_resource_5 = social_backlash_resource_6 = social_backlash_resource_7 = social_backlash_resource_8 = social_backlash_resource_9 = social_backlash_resource_10 = false
 
             # scores
             reliability_score_stage_1 = reliability_score_stage_2 = reliability_score_stage_3 = reliability_score_stage_4 = reliability_score_stage_5 = 0
@@ -707,13 +783,13 @@ const plot_colors = Dict(
             affordability_score = 15
             total_score = 0
 
-            cap_resource_1_stage_1 = cap_resource_2_stage_1 = cap_resource_3_stage_1 = cap_resource_4_stage_1 = cap_resource_5_stage_1 = cap_resource_6_stage_1 = cap_resource_7_stage_1 = cap_resource_8_stage_1 = 0
-            cap_resource_1_stage_2 = cap_resource_2_stage_2 = cap_resource_3_stage_2 = cap_resource_4_stage_2 = cap_resource_5_stage_2 = cap_resource_6_stage_2 = cap_resource_7_stage_2 = cap_resource_8_stage_2 = 0
-            cap_resource_1_stage_3 = cap_resource_2_stage_3 = cap_resource_3_stage_3 = cap_resource_4_stage_3 = cap_resource_5_stage_3 = cap_resource_6_stage_3 = cap_resource_7_stage_3 = cap_resource_8_stage_3 = 0
-            cap_resource_1_stage_4 = cap_resource_2_stage_4 = cap_resource_3_stage_4 = cap_resource_4_stage_4 = cap_resource_5_stage_4 = cap_resource_6_stage_4 = cap_resource_7_stage_4 = cap_resource_8_stage_4 = 0
-            cap_resource_1_stage_5 = cap_resource_2_stage_5 = cap_resource_3_stage_5 = cap_resource_4_stage_5 = cap_resource_5_stage_5 = cap_resource_6_stage_5 = cap_resource_7_stage_5 = cap_resource_8_stage_5 = 0
+            cap_resource_1_stage_1 = cap_resource_2_stage_1 = cap_resource_3_stage_1 = cap_resource_4_stage_1 = cap_resource_5_stage_1 = cap_resource_6_stage_1 = cap_resource_7_stage_1 = cap_resource_8_stage_1 = cap_resource_9_stage_1 = cap_resource_10_stage_1 = 0
+            cap_resource_1_stage_2 = cap_resource_2_stage_2 = cap_resource_3_stage_2 = cap_resource_4_stage_2 = cap_resource_5_stage_2 = cap_resource_6_stage_2 = cap_resource_7_stage_2 = cap_resource_8_stage_2 = cap_resource_9_stage_2 = cap_resource_10_stage_2 = 0
+            cap_resource_1_stage_3 = cap_resource_2_stage_3 = cap_resource_3_stage_3 = cap_resource_4_stage_3 = cap_resource_5_stage_3 = cap_resource_6_stage_3 = cap_resource_7_stage_3 = cap_resource_8_stage_3 = cap_resource_9_stage_3 = cap_resource_10_stage_3 = 0
+            cap_resource_1_stage_4 = cap_resource_2_stage_4 = cap_resource_3_stage_4 = cap_resource_4_stage_4 = cap_resource_5_stage_4 = cap_resource_6_stage_4 = cap_resource_7_stage_4 = cap_resource_8_stage_4 = cap_resource_9_stage_4 = cap_resource_10_stage_4 = 0
+            cap_resource_1_stage_5 = cap_resource_2_stage_5 = cap_resource_3_stage_5 = cap_resource_4_stage_5 = cap_resource_5_stage_5 = cap_resource_6_stage_5 = cap_resource_7_stage_5 = cap_resource_8_stage_5 = cap_resource_9_stage_5 = cap_resource_10_stage_5 = 0
 
-            bt_resource_1 = bt_resource_2 = bt_resource_3 = bt_resource_4 = bt_resource_5 = bt_resource_6 = bt_resource_7 = bt_resource_8 = 0
+            bt_resource_1 = bt_resource_2 = bt_resource_3 = bt_resource_4 = bt_resource_5 = bt_resource_6 = bt_resource_7 = bt_resource_8 = bt_resource_9 = bt_resource_10 = 0
 
             plot_df = plot_stage_results = DataFrame()
             plot_full_year = plot_stage_full_year = true
@@ -739,6 +815,8 @@ const plot_colors = Dict(
             social_backlash_resource_6 = resource_blocks["block_6"]["social_backlash"]
             social_backlash_resource_7 = resource_blocks["block_7"]["social_backlash"]
             social_backlash_resource_8 = resource_blocks["block_8"]["social_backlash"]
+            social_backlash_resource_9 = resource_blocks["block_9"]["social_backlash"]
+            social_backlash_resource_10 = resource_blocks["block_10"]["social_backlash"]
 
             available_shaping_tokens = sum(values(_game_setup["shaping_tokens"]))
 
@@ -762,6 +840,8 @@ const plot_colors = Dict(
                 is_clean_firm_resource_6 = false
                 is_clean_firm_resource_7 = false
                 is_clean_firm_resource_8 = false
+                is_clean_firm_resource_9 = false
+                is_clean_firm_resource_10 = false
                 b_color_resource_1 = replace(b_color_resource_1, color_select => "")
                 b_color_resource_2 = replace(b_color_resource_2, color_select => "")
                 b_color_resource_3 = replace(b_color_resource_3, color_select => "")
@@ -770,6 +850,8 @@ const plot_colors = Dict(
                 b_color_resource_6 = replace(b_color_resource_6, color_select => "")
                 b_color_resource_7 = replace(b_color_resource_7, color_select => "")
                 b_color_resource_8 = replace(b_color_resource_8, color_select => "")
+                b_color_resource_9 = replace(b_color_resource_9, color_select => "")
+                b_color_resource_10 = replace(b_color_resource_10, color_select => "")
             end
             if _game_setup["shaping_tokens"]["social_license"]
                 bt_social_license = true
@@ -808,6 +890,10 @@ const plot_colors = Dict(
                     push!(social_backlash_reduction_v, social_backlash_resource_7)
                 elseif is_new_resource_8
                     push!(social_backlash_reduction_v, social_backlash_resource_8)
+                elseif is_new_resource_9
+                    push!(social_backlash_reduction_v, social_backlash_resource_9)
+                elseif is_new_resource_10
+                    push!(social_backlash_reduction_v, social_backlash_resource_10)
                 end
                 social_backlash_reduction = 2*sum(social_backlash_reduction_v)
                 total_score -= social_backlash_reduction
@@ -823,6 +909,8 @@ const plot_colors = Dict(
             cap_resource_6_stage_1 = get(_game_setup["resource_blocks"]["block_6"], "cap_built_stage_1", 0)
             cap_resource_7_stage_1 = get(_game_setup["resource_blocks"]["block_7"], "cap_built_stage_1", 0)
             cap_resource_8_stage_1 = get(_game_setup["resource_blocks"]["block_8"], "cap_built_stage_1", 0)
+            cap_resource_9_stage_1 = get(_game_setup["resource_blocks"]["block_9"], "cap_built_stage_1", 0)
+            cap_resource_10_stage_1 = get(_game_setup["resource_blocks"]["block_10"], "cap_built_stage_1", 0)
 
             cap_resource_1_stage_2 = get(_game_setup["resource_blocks"]["block_1"], "cap_built_stage_2", 0)
             cap_resource_2_stage_2 = get(_game_setup["resource_blocks"]["block_2"], "cap_built_stage_2", 0)
@@ -832,6 +920,8 @@ const plot_colors = Dict(
             cap_resource_6_stage_2 = get(_game_setup["resource_blocks"]["block_6"], "cap_built_stage_2", 0)
             cap_resource_7_stage_2 = get(_game_setup["resource_blocks"]["block_7"], "cap_built_stage_2", 0)
             cap_resource_8_stage_2 = get(_game_setup["resource_blocks"]["block_8"], "cap_built_stage_2", 0)
+            cap_resource_9_stage_2 = get(_game_setup["resource_blocks"]["block_9"], "cap_built_stage_2", 0)
+            cap_resource_10_stage_2 = get(_game_setup["resource_blocks"]["block_10"], "cap_built_stage_2", 0)
 
             cap_resource_1_stage_3 = get(_game_setup["resource_blocks"]["block_1"], "cap_built_stage_3", 0)
             cap_resource_2_stage_3 = get(_game_setup["resource_blocks"]["block_2"], "cap_built_stage_3", 0)
@@ -841,6 +931,8 @@ const plot_colors = Dict(
             cap_resource_6_stage_3 = get(_game_setup["resource_blocks"]["block_6"], "cap_built_stage_3", 0)
             cap_resource_7_stage_3 = get(_game_setup["resource_blocks"]["block_7"], "cap_built_stage_3", 0)
             cap_resource_8_stage_3 = get(_game_setup["resource_blocks"]["block_8"], "cap_built_stage_3", 0)
+            cap_resource_9_stage_3 = get(_game_setup["resource_blocks"]["block_9"], "cap_built_stage_3", 0)
+            cap_resource_10_stage_3 = get(_game_setup["resource_blocks"]["block_10"], "cap_built_stage_3", 0)
 
             cap_resource_1_stage_4 = get(_game_setup["resource_blocks"]["block_1"], "cap_built_stage_4", 0)
             cap_resource_2_stage_4 = get(_game_setup["resource_blocks"]["block_2"], "cap_built_stage_4", 0)
@@ -850,6 +942,8 @@ const plot_colors = Dict(
             cap_resource_6_stage_4 = get(_game_setup["resource_blocks"]["block_6"], "cap_built_stage_4", 0)
             cap_resource_7_stage_4 = get(_game_setup["resource_blocks"]["block_7"], "cap_built_stage_4", 0)
             cap_resource_8_stage_4 = get(_game_setup["resource_blocks"]["block_8"], "cap_built_stage_4", 0)
+            cap_resource_9_stage_4 = get(_game_setup["resource_blocks"]["block_9"], "cap_built_stage_4", 0)
+            cap_resource_10_stage_4 = get(_game_setup["resource_blocks"]["block_10"], "cap_built_stage_4", 0)
 
             cap_resource_1_stage_5 = get(_game_setup["resource_blocks"]["block_1"], "cap_built_stage_5", 0)
             cap_resource_2_stage_5 = get(_game_setup["resource_blocks"]["block_2"], "cap_built_stage_5", 0)
@@ -859,6 +953,8 @@ const plot_colors = Dict(
             cap_resource_6_stage_5 = get(_game_setup["resource_blocks"]["block_6"], "cap_built_stage_5", 0)
             cap_resource_7_stage_5 = get(_game_setup["resource_blocks"]["block_7"], "cap_built_stage_5", 0)
             cap_resource_8_stage_5 = get(_game_setup["resource_blocks"]["block_8"], "cap_built_stage_5", 0)
+            cap_resource_9_stage_5 = get(_game_setup["resource_blocks"]["block_9"], "cap_built_stage_5", 0)
+            cap_resource_10_stage_5 = get(_game_setup["resource_blocks"]["block_10"], "cap_built_stage_5", 0)
 
             bt_resource_1 = 0
             bt_resource_2 = 0
@@ -868,6 +964,8 @@ const plot_colors = Dict(
             bt_resource_6 = 0
             bt_resource_7 = 0
             bt_resource_8 = 0
+            bt_resource_9 = 0
+            bt_resource_10 = 0
         end
     end
     @onbutton restartapp begin
@@ -1244,6 +1342,92 @@ const plot_colors = Dict(
             cum_cap_resource_8 = is_new_resource_8 ? sc_resource_8 + new_cap : sc_resource_8
         end
     end
+    
+    @onbutton resource_9_build_p begin
+        if available_build_tokens > 0
+            new_cap = (bt_resource_9 + 1) * bc_resource_9[1]
+            if (is_new_resource_9) || (new_cap <= sc_resource_9)
+                if current_stage == 1
+                    cap_resource_9_stage_1 = new_cap
+                elseif current_stage == 2
+                    cap_resource_9_stage_2 = new_cap
+                elseif current_stage == 3
+                    cap_resource_9_stage_3 = new_cap
+                elseif current_stage == 4
+                    cap_resource_9_stage_4 = new_cap
+                elseif current_stage == 5
+                    cap_resource_9_stage_5 = new_cap
+                end
+                bt_resource_9 += 1
+                available_build_tokens -= 1
+                cum_cap_resource_9 = is_new_resource_9 ? sc_resource_9 + new_cap : sc_resource_9
+            else
+                return
+            end
+        end
+    end
+    @onbutton resource_9_build_m begin
+        if bt_resource_9 > 0
+            bt_resource_9 -= 1
+            available_build_tokens += 1
+            new_cap = bt_resource_9 * bc_resource_9[1]
+            if current_stage == 1
+                cap_resource_9_stage_1 = new_cap
+            elseif current_stage == 2
+                cap_resource_9_stage_2 = new_cap
+            elseif current_stage == 3
+                cap_resource_9_stage_3 = new_cap
+            elseif current_stage == 4
+                cap_resource_9_stage_4 = new_cap
+            elseif current_stage == 5
+                cap_resource_9_stage_5 = new_cap
+            end
+            cum_cap_resource_9 = is_new_resource_9 ? sc_resource_9 + new_cap : sc_resource_9
+        end
+    end
+    
+    @onbutton resource_10_build_p begin
+        if available_build_tokens > 0
+            new_cap = (bt_resource_10 + 1) * bc_resource_10[1]
+            if (is_new_resource_10) || (new_cap <= sc_resource_10)
+                if current_stage == 1
+                    cap_resource_10_stage_1 = new_cap
+                elseif current_stage == 2
+                    cap_resource_10_stage_2 = new_cap
+                elseif current_stage == 3
+                    cap_resource_10_stage_3 = new_cap
+                elseif current_stage == 4
+                    cap_resource_10_stage_4 = new_cap
+                elseif current_stage == 5
+                    cap_resource_10_stage_5 = new_cap
+                end
+                bt_resource_10 += 1
+                available_build_tokens -= 1
+                cum_cap_resource_10 = is_new_resource_10 ? sc_resource_10 + new_cap : sc_resource_10
+            else
+                return
+            end
+        end
+    end
+    @onbutton resource_10_build_m begin
+        if bt_resource_10 > 0
+            bt_resource_10 -= 1
+            available_build_tokens += 1
+            new_cap = bt_resource_10 * bc_resource_10[1]
+            if current_stage == 1
+                cap_resource_10_stage_1 = new_cap
+            elseif current_stage == 2
+                cap_resource_10_stage_2 = new_cap
+            elseif current_stage == 3
+                cap_resource_10_stage_3 = new_cap
+            elseif current_stage == 4
+                cap_resource_10_stage_4 = new_cap
+            elseif current_stage == 5
+                cap_resource_10_stage_5 = new_cap
+            end
+            cum_cap_resource_10 = is_new_resource_10 ? sc_resource_10 + new_cap : sc_resource_10
+        end
+    end
 
     # update budget tokens and affordability score based on available budget tokens
     @onchange available_budget_tokens begin
@@ -1296,7 +1480,9 @@ const plot_colors = Dict(
             backend_data_name_5,
             backend_data_name_6,
             backend_data_name_7,
-            backend_data_name_8
+            backend_data_name_8,
+            backend_data_name_9,
+            backend_data_name_10
         ]
 
         start_capacity = DataFrame(
@@ -1307,7 +1493,9 @@ const plot_colors = Dict(
             resource_5=sc_resource_5,
             resource_6=sc_resource_6,
             resource_7=sc_resource_7,
-            resource_8=sc_resource_8
+            resource_8=sc_resource_8,
+            resource_9=sc_resource_9,
+            resource_10=sc_resource_10
         )
         rename!(start_capacity, backend_data_name)
 
@@ -1319,7 +1507,9 @@ const plot_colors = Dict(
             resource_5=bt_resource_5,
             resource_6=bt_resource_6,
             resource_7=bt_resource_7,
-            resource_8=bt_resource_8
+            resource_8=bt_resource_8,
+            resource_9=bt_resource_9,
+            resource_10=bt_resource_10
         )
         rename!(build_tokens, backend_data_name)
 
@@ -1331,7 +1521,9 @@ const plot_colors = Dict(
             resource_5=bc_resource_5,
             resource_6=bc_resource_6,
             resource_7=bc_resource_7,
-            resource_8=bc_resource_8
+            resource_8=bc_resource_8,
+            resource_9=bc_resource_9,
+            resource_10=bc_resource_10
         )
         rename!(build_cost, backend_data_name)
 
@@ -1379,8 +1571,10 @@ const plot_colors = Dict(
         rename!(df, "battery" => "Battery Discharge")
         rename!(df, "battery_charge" => "Battery Charge")
         rename!(df, "demand_not_served" => "Demand not served")
+        rename!(df, "hydro" => "Hydro")
+        rename!(df, "coal" => "Coal")
         # sort columns by cumulative capacity
-        sorted_idx = sortperm([1, 1, 1, cum_cap_resource_5, 1, cum_cap_resource_8, cum_cap_resource_7, cum_cap_resource_2, cum_cap_resource_4, cum_cap_resource_1, cum_cap_resource_3, cum_cap_resource_5, cum_cap_resource_6])
+        sorted_idx = sortperm([1, 1, 1, cum_cap_resource_5, 1, cum_cap_resource_8, cum_cap_resource_7, cum_cap_resource_2, cum_cap_resource_4, cum_cap_resource_1, cum_cap_resource_3, cum_cap_resource_5, cum_cap_resource_6, cum_cap_resource_9, cum_cap_resource_10])
         cols = names(df)[sorted_idx]
         select!(df, cols)
         # move battery charge and demand not served to the beginning
@@ -1581,6 +1775,21 @@ const plot_colors = Dict(
             bt_resource_8_disabled = ""
         end
     end
+    
+    @onchange social_backlash_resource_9 begin
+        if social_backlash_resource_9
+            bt_resource_9_disabled = "background-color: red; color: white"
+        else
+            bt_resource_9_disabled = ""
+        end
+    end
+    @onchange social_backlash_resource_10 begin
+        if social_backlash_resource_10
+            bt_resource_10_disabled = "background-color: red; color: white"
+        else
+            bt_resource_10_disabled = ""
+        end
+    end
 
     # advance stage
     @onchange confirm_advance_stage begin
@@ -1604,7 +1813,9 @@ const plot_colors = Dict(
             backend_data_name_5,
             backend_data_name_6,
             backend_data_name_7,
-            backend_data_name_8
+            backend_data_name_8,
+            backend_data_name_9,
+            backend_data_name_10
         ]
 
         start_capacity = DataFrame(
@@ -1615,7 +1826,9 @@ const plot_colors = Dict(
             resource_5=sc_resource_5,
             resource_6=sc_resource_6,
             resource_7=sc_resource_7,
-            resource_8=sc_resource_8
+            resource_8=sc_resource_8,
+            resource_9=sc_resource_9,
+            resource_10=sc_resource_10
         )
         rename!(start_capacity, backend_data_name)
 
@@ -1628,7 +1841,9 @@ const plot_colors = Dict(
             resource_5=bt_resource_5,
             resource_6=bt_resource_6,
             resource_7=bt_resource_7,
-            resource_8=bt_resource_8
+            resource_8=bt_resource_8,
+            resource_9=bt_resource_9,
+            resource_10=bt_resource_10
         )
         rename!(build_tokens, backend_data_name)
 
@@ -1640,7 +1855,9 @@ const plot_colors = Dict(
             resource_5=bc_resource_5,
             resource_6=bc_resource_6,
             resource_7=bc_resource_7,
-            resource_8=bc_resource_8
+            resource_8=bc_resource_8,
+            resource_9=bc_resource_9,
+            resource_10=bc_resource_10
         )
         rename!(build_cost, backend_data_name)
 
@@ -1684,7 +1901,9 @@ const plot_colors = Dict(
             resource_5=sbp_resource_5,
             resource_6=sbp_resource_6,
             resource_7=sbp_resource_7,
-            resource_8=sbp_resource_8
+            resource_8=sbp_resource_8,
+            resource_9=sbp_resource_9,
+            resource_10=sbp_resource_10
         )
         rename!(_backlash_risk, backend_data_name)
 
@@ -1707,6 +1926,8 @@ const plot_colors = Dict(
         sc_resource_6 = start_capacity_running[1, backend_data_name_6]
         sc_resource_7 = start_capacity_running[1, backend_data_name_7]
         sc_resource_8 = start_capacity_running[1, backend_data_name_8]
+        sc_resource_9 = start_capacity_running[1, backend_data_name_9]
+        sc_resource_10 = start_capacity_running[1, backend_data_name_10]
 
         cum_cap_resource_1 = sc_resource_1
         cum_cap_resource_2 = sc_resource_2
@@ -1716,6 +1937,8 @@ const plot_colors = Dict(
         cum_cap_resource_6 = sc_resource_6
         cum_cap_resource_7 = sc_resource_7
         cum_cap_resource_8 = sc_resource_8
+        cum_cap_resource_9 = sc_resource_9
+        cum_cap_resource_10 = sc_resource_10
 
         # update scores
         stage_reliability = scores[1, :Reliability]
@@ -1737,8 +1960,10 @@ const plot_colors = Dict(
         rename!(df, "battery" => "Battery Discharge")
         rename!(df, "storage_charge" => "Battery Charge")
         rename!(df, "nonserved" => "Demand not served")
+        rename!(df, "hydro" => "Hydro")
+        rename!(df, "coal" => "Coal")
         # sort columns by cumulative capacity
-        sorted_idx = sortperm([1, 1, 1, cum_cap_resource_5, 1, cum_cap_resource_8, cum_cap_resource_7, cum_cap_resource_2, cum_cap_resource_4, cum_cap_resource_1, cum_cap_resource_3, cum_cap_resource_5, cum_cap_resource_6])
+        sorted_idx = sortperm([1, 1, 1, cum_cap_resource_5, 1, cum_cap_resource_8, cum_cap_resource_7, cum_cap_resource_2, cum_cap_resource_4, cum_cap_resource_1, cum_cap_resource_3, cum_cap_resource_5, cum_cap_resource_6, cum_cap_resource_9, cum_cap_resource_10])
         cols = names(df)[sorted_idx]
         select!(df, cols)
         # move battery charge and demand not served to the beginning
@@ -1757,6 +1982,8 @@ const plot_colors = Dict(
         bc_resource_6 = resource_params["Build_Cost"][1, backend_data_name_6]
         bc_resource_7 = resource_params["Build_Cost"][1, backend_data_name_7]
         bc_resource_8 = resource_params["Build_Cost"][1, backend_data_name_8]
+        bc_resource_9 = resource_params["Build_Cost"][1, backend_data_name_9]
+        bc_resource_10 = resource_params["Build_Cost"][1, backend_data_name_10]
 
         # show social backlash and disaster results
         if uncertainty_results[1, "Disaster"] == true
@@ -1777,6 +2004,8 @@ const plot_colors = Dict(
         disaster_resource_6 = Bool(uncertainty_results[1, backend_data_name_6])
         disaster_resource_7 = Bool(uncertainty_results[1, backend_data_name_7])
         disaster_resource_8 = Bool(uncertainty_results[1, backend_data_name_8])
+        disaster_resource_9 = Bool(uncertainty_results[1, backend_data_name_9])
+        disaster_resource_10 = Bool(uncertainty_results[1, backend_data_name_10])
 
         # social backlash
         social_backlash_resource_1 = Bool(social_backlash[1, backend_data_name_1])
@@ -1787,6 +2016,8 @@ const plot_colors = Dict(
         social_backlash_resource_6 = Bool(social_backlash[1, backend_data_name_6])
         social_backlash_resource_7 = Bool(social_backlash[1, backend_data_name_7])
         social_backlash_resource_8 = Bool(social_backlash[1, backend_data_name_8])
+        social_backlash_resource_9 = Bool(social_backlash[1, backend_data_name_9])
+        social_backlash_resource_10 = Bool(social_backlash[1, backend_data_name_10])
 
         # reset build tokens
         bt_resource_1 = 0
@@ -1797,6 +2028,8 @@ const plot_colors = Dict(
         bt_resource_6 = 0
         bt_resource_7 = 0
         bt_resource_8 = 0
+        bt_resource_9 = 0
+        bt_resource_10 = 0
         buy_build_token_counter = 0
 
         _current_stage_budget_tokens = available_budget_tokens
@@ -1826,6 +2059,8 @@ const plot_colors = Dict(
             is_clean_firm_resource_6 = false
             is_clean_firm_resource_7 = false
             is_clean_firm_resource_8 = false
+            is_clean_firm_resource_9 = false
+            is_clean_firm_resource_10 = false
             b_color_resource_1 = replace(b_color_resource_1, color_select => "")
             b_color_resource_2 = replace(b_color_resource_2, color_select => "")
             b_color_resource_3 = replace(b_color_resource_3, color_select => "")
@@ -1834,6 +2069,8 @@ const plot_colors = Dict(
             b_color_resource_6 = replace(b_color_resource_6, color_select => "")
             b_color_resource_7 = replace(b_color_resource_7, color_select => "")
             b_color_resource_8 = replace(b_color_resource_8, color_select => "")
+            b_color_resource_9 = replace(b_color_resource_9, color_select => "")
+            b_color_resource_10 = replace(b_color_resource_10, color_select => "")
         end
 
         if current_stage == 1
@@ -1888,6 +2125,10 @@ const plot_colors = Dict(
                 push!(social_backlash_reduction_v, social_backlash_resource_7)
             elseif is_new_resource_8
                 push!(social_backlash_reduction_v, social_backlash_resource_8)
+            elseif is_new_resource_9
+                push!(social_backlash_reduction_v, social_backlash_resource_9)
+            elseif is_new_resource_10
+                push!(social_backlash_reduction_v, social_backlash_resource_10)
             end
             social_backlash_reduction = 2*sum(social_backlash_reduction_v)
             total_score -= social_backlash_reduction
@@ -2014,6 +2255,32 @@ const plot_colors = Dict(
                         "cap_built_stage_1" => cap_resource_8_stage_1,
                         "cap_built_stage_2" => cap_resource_8_stage_2,
                         "cap_built_stage_3" => cap_resource_8_stage_3
+                    ),
+                    "block_9" => Dict(
+                        "name" => name_resource_9,
+                        "start_capacity" => sc_resource_9,
+                        "build_cost" => bc_resource_9,
+                        "backlash_risk" => sbp_resource_9,
+                        "EDG_data_name" => backend_data_name_9,
+                        "EDG_data_info" => backend_data_info_9,
+                        "new_resource" => is_new_resource_9,
+                        "social_backlash" => social_backlash_resource_9,
+                        "cap_built_stage_1" => cap_resource_9_stage_1,
+                        "cap_built_stage_2" => cap_resource_9_stage_2,
+                        "cap_built_stage_3" => cap_resource_9_stage_3
+                    ),
+                    "block_10" => Dict(
+                        "name" => name_resource_10,
+                        "start_capacity" => sc_resource_10,
+                        "build_cost" => bc_resource_10,
+                        "backlash_risk" => sbp_resource_10,
+                        "EDG_data_name" => backend_data_name_10,
+                        "EDG_data_info" => backend_data_info_10,
+                        "new_resource" => is_new_resource_10,
+                        "social_backlash" => social_backlash_resource_10,
+                        "cap_built_stage_1" => cap_resource_10_stage_1,
+                        "cap_built_stage_2" => cap_resource_10_stage_2,
+                        "cap_built_stage_3" => cap_resource_10_stage_3
                     ),
                 ),
                 "uncertainty_parameters" => Dict(
