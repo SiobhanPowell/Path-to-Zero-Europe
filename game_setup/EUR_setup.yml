@@ -62,7 +62,7 @@ resource_blocks:
 
   block_5:
     name: "BATTERY ENERGY STORAGE"
-    start_capacity: 0
+    start_capacity: 5
     build_cost: 20
     backlash_risk: "none"
     EDG_data_name: "battery"
@@ -92,7 +92,7 @@ resource_blocks:
 
   block_8:
     name: "NATURAL GAS"
-    start_capacity: 60
+    start_capacity: 45
     build_cost: 15
     backlash_risk: "moderate"
     EDG_data_name: "natural_gas"
@@ -102,7 +102,7 @@ resource_blocks:
     
   block_9:
     name: "COAL"
-    start_capacity: 20
+    start_capacity: 10
     build_cost: 20
     backlash_risk: "high"
     EDG_data_name: "coal"
