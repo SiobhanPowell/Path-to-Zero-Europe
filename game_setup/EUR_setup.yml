@@ -32,7 +32,7 @@ resource_blocks:
 
   block_2:
     name: "UTILITY-SCALE SOLAR PV"
-    start_capacity: 0
+    start_capacity: 5
     build_cost: 15
     backlash_risk: "moderate"
     EDG_data_name: "solar_pv"
@@ -42,7 +42,7 @@ resource_blocks:
 
   block_3:
     name: "OFFSHORE WIND POWER"
-    start_capacity: 0
+    start_capacity: 5
     build_cost: 8
     backlash_risk: "low"
     EDG_data_name: "offshore_wind"
@@ -62,7 +62,7 @@ resource_blocks:
 
   block_5:
     name: "BATTERY ENERGY STORAGE"
-    start_capacity: 0
+    start_capacity: 5
     build_cost: 20
     backlash_risk: "none"
     EDG_data_name: "battery"
@@ -73,7 +73,7 @@ resource_blocks:
   block_6:
     name: "CLEAN FIRM RESOURCE"
     start_capacity: 0
-    build_cost: 4
+    build_cost: 5
     backlash_risk: "low"
     EDG_data_name: "clean_firm"
     EDG_data_info: "Unavailable in Stage 1. Unlocked with Shaping token."
@@ -93,8 +93,8 @@ resource_blocks:
   block_8:
     name: "NATURAL GAS"
     start_capacity: 60
-    build_cost: 20
-    backlash_risk: "low"
+    build_cost: 15
+    backlash_risk: "moderate"
     EDG_data_name: "natural_gas"
     EDG_data_info: "Emitting generation source"
     new_resource: false
@@ -103,7 +103,7 @@ resource_blocks:
   block_9:
     name: "COAL"
     start_capacity: 20
-    build_cost: 10
+    build_cost: 20
     backlash_risk: "high"
     EDG_data_name: "coal"
     EDG_data_info: "Emitting generation source"
@@ -112,9 +112,9 @@ resource_blocks:
     
   block_10:
     name: "HYDRO"
-    start_capacity: 60
+    start_capacity: 40
     build_cost: 20
-    backlash_risk: "low"
+    backlash_risk: "none"
     EDG_data_name: "hydro"
     EDG_data_info: "Average output (capacity factor): 58%."
     new_resource: false
