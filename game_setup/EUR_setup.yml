@@ -22,7 +22,7 @@ resource_blocks:
 
   block_1:
     name: "ONSHORE WIND POWER"
-    start_capacity: 10
+    start_capacity: 5
     build_cost: 10
     backlash_risk: "moderate"
     EDG_data_name: "onshore_wind"
@@ -52,7 +52,7 @@ resource_blocks:
 
   block_4:
     name: "DISTRIBUTED SOLAR PV"
-    start_capacity: 10
+    start_capacity: 5
     build_cost: 12
     backlash_risk: "none"
     EDG_data_name: "distributed_solar"
@@ -62,7 +62,7 @@ resource_blocks:
 
   block_5:
     name: "BATTERY ENERGY STORAGE"
-    start_capacity: 5
+    start_capacity: 0
     build_cost: 20
     backlash_risk: "none"
     EDG_data_name: "battery"
@@ -114,7 +114,7 @@ resource_blocks:
     name: "HYDRO"
     start_capacity: 40
     build_cost: 20
-    backlash_risk: "none"
+    backlash_risk: "low"
     EDG_data_name: "hydro"
     EDG_data_info: "Average output (capacity factor): 58%."
     new_resource: false
