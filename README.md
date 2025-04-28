@@ -32,8 +32,8 @@ make start_game
 
 2. **Clone the repository**: You can clone the repository by typing the following command in your command line:
 ```julia
-git clone https://github.com/PrincetonZEROLab/Path-to-Zero.git
-cd Path-to-Zero
+git clone https://github.com/SiobhanPowell/Path-to-Zero-Europe.git
+cd Path-to-Zero-Europe
 ```
 or, if you do not have git installed, you can download the repository as a zip file by clicking the "Code" button on the GitHub page and then clicking the "Download ZIP" button.
 
@@ -61,5 +61,8 @@ The game was created and designed by [Jesse D. Jenkins](https://mae.princeton.ed
 
 ## Troubleshooting
 If you encounter any issues, please open an issue on the [GitHub page](https://github.com/PrincetonZEROLab/Path-to-Zero/issues) or contact Luca Bonaldo (lucabonaldo@princeton.edu).
+
+## This Version
+This version of the game was forked from the [Princeton ZERO Lab Path-to-Zero repository](https://github.com/PrincetonZEROLab/Path-to-Zero) and edited by Siobhan Powell (spowell@ethz.ch) to include the EUR_* set-ups with hydro and coal. Hydro is represented in a simplified way as a non-dispatchable VRE.  
 
 ![png](./docs/src/assets/EDG_board.svg)
