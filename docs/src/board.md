@@ -1,1 +1,1 @@
-![png](./assets/EDG_board.svg)
+![png](./assets/EDG_board_5stages.svg)
