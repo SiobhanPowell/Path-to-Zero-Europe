@@ -12,7 +12,7 @@ The game simulates electricity system operations, allowing players to test out t
 For detailed game instructions, please refer to the [game play instructions](https://princetonzerolab.github.io/Path-to-Zero/dev/instructions/) and [getting started](https://princetonzerolab.github.io/Path-to-Zero/dev/getting_started/) sections of the manual.
 
 ## How to Run Path To Zero on GitHub Codespaces (GitHub account required)
-1. Navigate to the following [GitHub page](https://github.com/PrincetonZEROLab/Path-to-Zero) and click the "Code" button.
+1. Navigate to the following [GitHub page](https://github.com/SiobhanPowell/Path-to-Zero-Europe) and click the "Code" button.
 2. Click the "Codespaces" tab.
 3. Click the "Create codespace on main" button.
 4. Once the codespace is created, you can start the game by running the following command in the command line:
