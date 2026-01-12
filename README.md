@@ -57,12 +57,14 @@ julia --project -q -i -e "using Pkg; Pkg.precompile(); using GenieFramework; Gen
 5. **Launch the game**: Open your web browser and go to `http://localhost:8000/` to access the game.
 
 ## The Team
-The game was created and designed by [Jesse D. Jenkins](https://mae.princeton.edu/people/faculty/jenkins) and developed by the [Princeton ZERO Lab](https://zero.lab.princeton.edu/) and the [Princeton RSE Group](https://researchcomputing.princeton.edu/services/research-software-engineering) at Princeton University.
+The game was originally created and designed by [Jesse D. Jenkins](https://mae.princeton.edu/people/faculty/jenkins) and developed by the [Princeton ZERO Lab](https://zero.lab.princeton.edu/) and the [Princeton RSE Group](https://researchcomputing.princeton.edu/services/research-software-engineering) at Princeton University. 
+
+## This Version
+This version of the game was forked from the [Princeton ZERO Lab Path-to-Zero repository](https://github.com/PrincetonZEROLab/Path-to-Zero) and edited by [Siobhan Powell](https://sustec.ethz.ch/people/sr/siobhan-powell.html) (spowell@ethz.ch) to include the EUR_* set-ups with hydro and coal. Hydro is represented in a simplified way as a non-dispatchable VRE. This version is intended for use in the Energy Innovation and Management course at ETH Zurich. 
 
 ## Troubleshooting
 If you encounter any issues, please open an issue on the [GitHub page](https://github.com/PrincetonZEROLab/Path-to-Zero/issues) or contact Luca Bonaldo (lucabonaldo@princeton.edu).
 
-## This Version
-This version of the game was forked from the [Princeton ZERO Lab Path-to-Zero repository](https://github.com/PrincetonZEROLab/Path-to-Zero) and edited by Siobhan Powell (spowell@ethz.ch) to include the EUR_* set-ups with hydro and coal. Hydro is represented in a simplified way as a non-dispatchable VRE.  
+
 
 ![png](./docs/src/assets/EDG_board.svg)
