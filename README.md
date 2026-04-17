@@ -62,9 +62,5 @@ The game was originally created and designed by [Jesse D. Jenkins](https://mae.p
 ## This Version
 This version of the game was forked from the [Princeton ZERO Lab Path-to-Zero repository](https://github.com/PrincetonZEROLab/Path-to-Zero) and edited by [Siobhan Powell](https://sustec.ethz.ch/people/sr/siobhan-powell.html) (spowell@ethz.ch) to include the EUR_* set-ups with hydro and coal. Hydro is represented in a simplified way as a non-dispatchable VRE. This version is intended for use in the Energy Innovation and Management course at ETH Zurich. 
 
-## Troubleshooting
-If you encounter any issues, please open an issue on the [GitHub page](https://github.com/PrincetonZEROLab/Path-to-Zero/issues) or contact Luca Bonaldo (lucabonaldo@princeton.edu).
 
-
-
-![png](./docs/src/assets/EDG_board.svg)
+![png](./docs/src/assets/EDG_board_5stages.svg)
